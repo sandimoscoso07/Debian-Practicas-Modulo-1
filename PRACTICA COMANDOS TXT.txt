@@ -1,0 +1,107 @@
+Practica 1: Instalacion del Sistema Operativo (Debian) txt
+
+- lsb_release -a
+- ping google.com -c 4
+
+
+
+
+
+
+
+
+
+Practica 2: Configuración de parametros de red. txt
+
+ip a
+
+/sbin/dhclient ens33
+
+ip a
+
+sudo ip addr add 192.168.1.50/24 dev ens33
+
+sudo ip route add default via 192.168.1.1
+
+ip a
+
+ip route
+
+sudo nano /etc/resolv.conf
+
+nameserver 8.8.8.8
+
+nameserver 8.8.4.4
+
+ping google.com -c 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+Practica 3: Gestion de Usuario y grupos
+
+su
+
+/usr/sbin/adduser Sandi
+
+/usr/sbin/usermod -aG sudo Sandi
+
+groups Sandi
+
+/usr/sbin/addgroup guest
+
+/usr/sbin/adduser invitado
+
+/usr/sbin/usermod -aG guest invitado
+
+groups invitado
+
+/usr/sbin/deluser invitado
+
+/usr/sbin/delgroup guest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Practica 4: Gestion de Permisos de archivos
+
+mkdir materia
+
+cd materia
+
+touch estudiante.txt
+
+vi estudiante.txt
+
+chmod 700 estudiante.txt
+
+chmod 070 estudiante.txt
+
+cd ..
+
+mkdir materia2
+
+cp materia/estudiante.txt materia2
+
+rm -r materia
+
+rm -r materia2
