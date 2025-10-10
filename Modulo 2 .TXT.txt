@@ -1,0 +1,73 @@
+Práctica 1 - Modulo 2 
+
+sudo apt update
+
+sudo apt upgrade -y
+
+cat /etc/apt/sources.list
+
+apt-cache search bashtop
+
+sudo apt install bashtop -y
+
+which bashtop
+
+bashtop
+
+sudo apt purge bashtop -y
+
+sudo apt autoremove -y
+
+
+
+
+
+
+Practica 2 - Modulo 2
+
+crontab -e
+
+0 23 * * * apt update && apt upgrade -y
+
+0 3 * * 0 reboot
+
+crontab -l
+
+echo  "rm -rf /tmp/*" | at now + 1 minute
+
+atq
+
+date
+
+touch /tmp/archivo.malo
+
+touch /tmp/archivo.adio
+
+ls /tmp
+
+
+
+
+
+Práctica 3 – Modulo 2
+
+lsblk
+
+sudo mkfs.ext4 /dev/sdb
+
+mkdir ~/Escritorio/midisco
+
+sudo mount /dev/sdb ~/Escritorio/midisco
+
+cd ~/Escritorio/midisco
+
+touch AdrianAlcantara.txt
+
+sudo umount ~/Escritorio/midisco
+
+sudo mount /dev/sdb /mnt
+
+cd /mnt
+ls
+
+
