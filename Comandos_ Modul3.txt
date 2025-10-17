@@ -1,0 +1,86 @@
+Modulo 3 - Practica 1
+
+sudo nano /etc/default/grub
+
+Cambiar GRUB_TIMEOUT=5 por GRUB_TIMEOUT=20
+
+sudo update-grub
+
+sudo reboot
+
+rw init=/bin/bash
+
+nano /etc/shadow
+
+passwd sandi
+
+sync
+
+reboot -f
+
+
+
+
+
+
+Modulo 3 - Practica 2
+
+
+nano backup.sh
+
+#!/bin/bash
+fecha=$(date +"%d-%m-%Y_%H-%M")
+tar -czvf /home/sandi/backup_$fecha.tar.gz /home/sandi
+echo "Se ha creado el respaldo: backup_$fecha.tar.gz"
+
+chmod +x backup.sh
+
+./backup.sh
+
+nano guardar_ifconfig.sh
+
+#!/bin/bash
+read -p "Ingrese el nombre del archivo: " nombre
+ip addr > /home/sandi/Escritorio/$nombre.txt
+echo "Archivo creado en el escritorio con el nombre $nombre.txt"
+
+chmod +x guardar_ifconfig.sh
+
+./guardar_ifconfig.sh
+
+ls /home/sandi/Escritorio/
+
+
+
+
+
+
+Modulo 3 - Practica 3
+
+
+-ip addr
+
+
+-ping 192.168.68.114
+
+-sudo apt update
+-sudo apt install openssh-server -y
+-sudo systemctl enable ssh
+-sudo systemctl start ssh.
+
+-ssh sandi@192.168.68.114
+
+-ssh-keygen -t rsa 
+
+ruta de llaves: -C:\Users\Sandi\Desktop\sshclase\id_rsa
+
+
+type C:\Users\Sandi\Desktop\sshclase\id_rsa.pub | ssh sandi@192.168.68.114 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+
+
+ssh -i C:\Users\Sandi\Desktop\sshclase\id_rsa sandi@192.168.68.114
+
+
+
+
+
