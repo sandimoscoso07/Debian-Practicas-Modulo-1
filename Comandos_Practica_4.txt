@@ -1,0 +1,131 @@
+
+Modulo 4 - Practica 1
+
+
+sudo apt update
+
+sudo apt install apache2 -y
+
+sudo systemctl status apache2
+
+sudo mkdir -p /var/www/html/hola_mundo
+
+echo "<h1>Hola Mundo</h1>" | sudo tee /var/www/html/hola_mundo/index.html
+
+sudo nano /etc/apache2/sites-available/hola_mundo.conf
+
+<VirtualHost *:80>
+ServerAdmin webmaster@localhost
+DocumentRoot /var/www/html/hola_mundo
+ServerName hola_mundo.local
+ErrorLog ${APACHE_LOG_DIR}/error.log
+CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+sudo a2ensite hola_mundo.conf
+
+sudo mkdir -p /var/www/html/sandi_web
+
+echo "<h1>Sandi - 20241524 - Sistemas Operativos 3</h1>" | sudo tee /var/www/html/sandi_web/index.html
+
+sudo nano /etc/apache2/sites-available/sandi_web.conf
+
+<VirtualHost *:8080>
+ServerAdmin webmaster@localhost
+DocumentRoot /var/www/html/sandi_web
+ServerName sandi_web.local
+ErrorLog ${APACHE_LOG_DIR}/error.log
+CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+sudo nano /etc/apache2/ports.conf
+
+Listen 8080
+
+sudo a2ensite sandi_web.conf
+
+sudo systemctl restart apache2
+
+sudo nano /etc/hosts
+
+127.0.0.1 hola_mundo.local
+127.0.0.1 sandi_web.local
+
+sudo systemctl restart apache2
+
+http://hola_mundo.local
+
+http://sandi_web.local:8080
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Modulo 4 - Practica 2
+
+sudo apt update
+
+sudo apt install postfix mailutils -y
+
+cd /etc/postfix/sasl
+
+sudo nano /etc/postfix/sasl/sasl_passwd
+
+[smtp.gmail.com]:587 sandimoscoso07@gmail.com:************
+
+sudo postmap /etc/postfix/sasl/sasl_passwd
+
+sudo chmod 600 /etc/postfix/sasl/sasl_passwd
+
+sudo chmod 600 /etc/postfix/sasl/sasl_passwd.db
+
+ls /etc/postfix/sasl/sasl_passwd
+
+sudo nano /etc/postfix/main.cf
+
+relayhost = [smtp.gmail.com]:587
+
+smtp_sasl_auth_enable = yes
+smtp_sasl_security_options = noanonymous
+smtp_sasl_password_maps = hash:/etc/postfix/sasl/sasl_passwd
+smtp_tls_security_level = encrypt
+smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
+
+sudo systemctl restart postfix
+
+sudo systemctl status postfix
+
+echo "Correo de prueba" | mail -s "Prueba de correo" sandimoscoso07@gmail.com
+
+echo "Sandi - 20241524" | mail -s "MambruSeFueALaGuerra" os3conadrian@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
