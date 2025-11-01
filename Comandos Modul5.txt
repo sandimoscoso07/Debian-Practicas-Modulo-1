@@ -1,0 +1,79 @@
+
+Modulo 5 - Practica 1
+
+
+Sudo systemctl status ssh (2)
+
+verificar ssh
+
+Sudo systemctl start ssh (2)
+en caso de que este inactivo
+
+ip a (2)
+
+ssh sandi@192.168.68.114 
+
+exit 
+
+ssh-keygen 
+
+ssh-copy-id sandi@192.168.68.114 
+
+ssh sandi@192.168.68.114 
+
+exit 
+
+sudo apt install rsync -y 
+
+cd Escritorio 
+
+mkdir prueba1 
+
+cd prueba1 
+
+ls 
+
+touch archivo{1..100}.txt 
+
+ls 
+
+rsync -azP /home/sandi/Escritorio/prueba1/ sandi@192.168.68.114:/home/sandi 
+
+ls 
+
+cd prueba1 
+
+ls 
+
+cat archivo80.txt 
+
+sudo nano archivo80.txt 
+uki uki room
+
+rsync -azP /home/sandi/Escritorio/prueba1/ sandi@192.168.68.114:/home/sandi 
+
+cat archivo80.txt 
+
+sudo nano /prueba_script.sh 
+rsync -azP /home/sandi/Escritorio/prueba1/ sandi@192.168.68.114:/home/sandi 
+
+sudo chmod +x /prueba_script.sh 
+
+crontab -e enter : * * * * * /bin/bash /prueba_scribt.sh 
+touch lafruta.txt = 20241524
+
+ls 
+
+ls 
+
+sudo nano lafruta.txt 
+teamfruta
+
+cat 
+
+
+
+
+
+ 
+
