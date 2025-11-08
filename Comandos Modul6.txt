@@ -1,0 +1,141 @@
+Modulo 6 - Practica 1
+
+
+sudo apt update && sudo apt install gnupg2 -y
+
+mkdir cifradoSO3
+
+cd cifradoSO3
+
+echo "Team la fruta 500Usd" > secreto.txt
+
+gpg2 --full-generate-key
+
+gpg2 --list-keys
+
+gpg2 -e -r "sandi moscoso" secreto.txt
+
+secreto.txt.gpg
+
+cat secreto.txt.gpg
+
+gpg2 -d secreto.txt.gpg > archivo_descifrado.txt
+
+cat archivo_descifrado.txt
+
+
+
+
+
+
+Modulo 6 - Practica 2
+
+
+sudo apt update && sudo apt install apache2 vsftpd -y
+
+sudo systemctl enable apache2 && sudo systemctl start apache2
+
+sudo systemctl enable vsftpd && sudo systemctl start vsftpd
+
+sudo systemctl enable ssh && sudo systemctl start ssh
+
+sudo iptables -A INPUT -p tcp --dport 80 -j DROP
+
+sudo iptables -A INPUT -p tcp --dport 21 -j DROP
+
+sudo iptables -A INPUT -p tcp --dport 22 -j DROP
+
+sudo iptables -L -n
+
+sudo iptables -D INPUT -p tcp --dport 80 -j DROP
+
+sudo iptables -D INPUT -p tcp --dport 21 -j DROP
+
+sudo iptables -D INPUT -p tcp --dport 22 -j DROP
+
+sudo iptables -L -n
+
+sudo apt install ufw -y
+
+sudo ufw enable.
+
+sudo ufw deny 80
+
+sudo ufw deny 21
+
+sudo ufw deny 22
+
+sudo ufw status
+
+sudo ufw allow 80
+
+sudo ufw allow 21
+
+sudo ufw allow 22
+
+sudo ufw status
+
+
+
+
+Modulo 6 - Practica 4
+
+
+sudo apt install libpam-google-authenticator -y
+
+google-authenticator
+
+sudo nano /etc/pam.d/sshd
+
+auth required pam_google_authenticator.so
+
+sudo nano /etc/ssh/sshd_config
+
+ChallengeResponseAuthentication yes
+UsePAM yes
+PasswordAuthentication yes
+KbdInteractiveAuthentication yes
+
+sudo systemctl restart ssh
+
+ssh sandi@10.0.0.29
+Password: 
+Verification code: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
